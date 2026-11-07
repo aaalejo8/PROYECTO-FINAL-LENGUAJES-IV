@@ -88,7 +88,7 @@ Más `supabase/seed.sql` (contenido de ejemplo). Guía: [`SUPABASE.md`](SUPABASE
 | **2** Diseño y prototipado | PARCIAL (sólo wireframes) | **PARCIAL** | §10 wireframes + §13 capturas reales | Capturas de celular del inicio; láminas visuales si la cátedra las exige |
 | **2** Navegabilidad y responsive | COMPLETO | **COMPLETO** | §10, verificado a 375 px | — |
 | **3** Base SQL | PARCIAL (PostgreSQL sin instalar) | **COMPLETO** | Supabase + 6 migraciones | — |
-| **3** Despliegue nube o localhost | PARCIAL | **COMPLETO** (localhost) | Verificado `:5173` y `:3000` | Opcional: Render (`PUBLICAR.md`) |
+| **3** Despliegue nube o localhost | PARCIAL | **COMPLETO** (nube y localhost) | Vercel: https://proyecto-final-lenguajes-iv.vercel.app, integración 9/9 contra el sitio publicado; localhost `:5173`/`:3000` | — |
 | **3** UX/UI cuidado y adaptativo | COMPLETO | **COMPLETO** | Tailwind, capturas | — |
 | **3** Framework CSS obligatorio | COMPLETO | **COMPLETO** | Tailwind CSS v4 | — |
 | **3** Validación estricta de campos, archivos e imágenes | COMPLETO (sin verificar) | **COMPLETO** | 3 capas; pruebas unit/db/integración | — |

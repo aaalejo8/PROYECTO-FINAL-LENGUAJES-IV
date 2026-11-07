@@ -4,12 +4,46 @@ Con Supabase la base, las cuentas y las imágenes ya están en la nube: para pub
 subir **el servidor Node** (que además entrega el sitio compilado). No hace falta disco persistente.
 
 - **A. Localhost** (alcanza para la exposición): `README.md` → *Puesta en marcha*.
-- **B. Render (recomendado, gratis)**: esta guía, sección 1.
-- **C. VPS propio con Ubuntu**: sección 2.
+- **B. Vercel (publicado)**: sección 0. Es el despliegue actual.
+- **C. Render**: sección 1.
+- **D. VPS propio con Ubuntu**: sección 2.
+
+## 0. Vercel — despliegue actual
+
+- **Sitio:** <https://proyecto-final-lenguajes-iv.vercel.app>
+- **Proyecto de Vercel:** `aaalejo8s-projects/proyecto-final-lenguajes-iv`
+- **Repositorio (privado):** <https://github.com/aaalejo8/PROYECTO-FINAL-LENGUAJES-IV>
+
+**Cómo funciona.** La CDN de Vercel sirve el sitio compilado (`client/dist`). La API corre como
+**una función serverless** (`api/index.js`), que usa exactamente el mismo código que el servidor
+local (`server/src/app.js` + `server/src/http.js`). `vercel.json` define la instalación, la
+compilación, el reenvío de `/api/*` a la función, la vuelta a `index.html` para las rutas del
+sitio y los encabezados de seguridad (CSP incluida). En Vercel el formulario de contacto
+**espera** a que salgan los correos antes de responder, porque la función se congela al terminar.
+
+**Actualizar.** Alcanza con `git push` a `main`: Vercel compila y publica solo. No uses
+`vercel deploy` desde la carpeta, porque subiría también los `.env` locales.
+
+**Variables de entorno.** Están cargadas en Vercel → *Settings → Environment Variables*
+(Production). Son las mismas de `server/.env`, más `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`,
+`NODE_ENV=production`, `TRUST_PROXY=true` y `PUBLIC_URL=https://proyecto-final-lenguajes-iv.vercel.app`.
+Si cambiás una, redesplegá para que tome efecto.
+
+**En Supabase** → *Authentication → URL Configuration*:
+- **Site URL:** `https://proyecto-final-lenguajes-iv.vercel.app`
+- **Redirect URLs:** agregar `https://proyecto-final-lenguajes-iv.vercel.app/auth/callback`
+  (y dejar las de `localhost` para desarrollar).
+
+**Verificado el 07/11/2026.** `npm run test:integracion` contra el sitio publicado pasó las 9
+pruebas (login, roles, CRUD con subida a Storage, bandeja y respuesta por correo, métricas,
+alta/bloqueo/baja de cuentas, contacto y visitas).
+
+**Límites a tener en cuenta.** Los límites de intentos de login y de envíos del formulario se
+guardan en memoria, así que en Vercel valen por cada instancia de la función y no para todo el
+sitio. Siguen frenando abusos simples; un bloqueo global necesitaría guardar los intentos en la base.
 
 > El enunciado acepta "en la nube (GitHub Pages, Vercel, Render u otros) o localhost". GitHub Pages
-> y Vercel estático **no** sirven solos porque el servidor Node tiene que estar corriendo (correo,
-> validación, claves privadas). Render sí.
+> no sirve porque no puede correr la API. Vercel sí, porque la API corre como función serverless.
 
 ## 1. Render
 

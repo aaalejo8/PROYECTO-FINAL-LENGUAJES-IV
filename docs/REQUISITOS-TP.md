@@ -41,7 +41,7 @@ verificación de cada uno está en [`AUDITORIA.md`](AUDITORIA.md) §4.
 | Validación estricta de campos | Navegador: `client/src/utils.js` · Servidor: `server/src/validar.js` · Base: restricciones `CHECK` en `supabase/migrations/…_esquema.sql` (tres capas) |
 | Validación de archivos e imágenes | Navegador: tipo, peso y redimensionado (`panel/SubirImagen.jsx`) · Servidor: **primeros bytes** del archivo, máx. 4 MB, nombre generado (`server/src/imagenes.js`) · Supabase Storage: límite de 4 MB y tipos MIME del bucket · RLS: sólo admin sube |
 | Base de datos SQL | **Supabase (PostgreSQL 17)** — 6 migraciones reproducibles en `supabase/migrations/` |
-| Despliegue | Localhost (README) y guía para Render/VPS (`docs/PUBLICAR.md`) |
+| Despliegue | **Vercel**: <https://proyecto-final-lenguajes-iv.vercel.app> (API como función serverless, `api/index.js` + `vercel.json`) · también localhost (README) · guía en `docs/PUBLICAR.md` |
 | Documentación | `docs/` (auditoría, Supabase, arquitectura, pruebas, manual) + comentarios en el código |
 
 ## E. Promoción (rol Administrador)

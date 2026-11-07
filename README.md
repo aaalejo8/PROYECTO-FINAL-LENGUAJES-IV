@@ -35,6 +35,10 @@ Portfolio de un desarrollador fullstack (ficticio: *Nicolás Herrera*, reemplaza
 
 ---
 
+## Publicado
+
+**https://proyecto-final-lenguajes-iv.vercel.app** (Vercel). Cada `git push` a `main` lo vuelve a publicar. Detalles en [`docs/PUBLICAR.md`](docs/PUBLICAR.md).
+
 ## Puesta en marcha (localhost)
 
 Necesitás **Node.js 20.12 o más nuevo** y un proyecto de **Supabase** con las migraciones aplicadas
