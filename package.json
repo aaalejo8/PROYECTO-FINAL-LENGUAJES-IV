@@ -1,0 +1,22 @@
+{
+  "name": "portfolio-fullstack",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Portfolio fullstack (React + Node.js + Supabase) — TP Integrador de Lenguajes 4",
+  "engines": {
+    "node": ">=20.12"
+  },
+  "scripts": {
+    "preparar": "node scripts/preparar.js",
+    "dev": "node scripts/dev.js",
+    "instalar": "npm install --prefix server && npm install --prefix client",
+    "construir": "npm run build --prefix client",
+    "iniciar": "npm start --prefix server",
+    "dev:servidor": "npm run dev --prefix server",
+    "dev:cliente": "npm run dev --prefix client",
+    "db:seed": "npm run db:seed --prefix server",
+    "admin:crear": "npm run admin:crear --prefix server",
+    "test": "npm test --prefix server",
+    "test:integracion": "npm run test:integracion --prefix server"
+  }
+}

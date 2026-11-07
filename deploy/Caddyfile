@@ -1,0 +1,10 @@
+# Caddy pone el candadito (https) solo y renueva el certificado. Reemplazá tu-dominio.com por el dominio real.
+# Copiar a /etc/caddy/Caddyfile (ver docs/PUBLICAR.md).
+tu-dominio.com {
+	encode gzip
+	reverse_proxy localhost:3000
+}
+
+www.tu-dominio.com {
+	redir https://tu-dominio.com{uri} permanent
+}

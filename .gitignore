@@ -1,0 +1,17 @@
+node_modules/
+dist/
+.env
+*.log
+.DS_Store
+
+__pycache__/
+*.pyc
+
+# Carpeta temporal de Supabase CLI
+supabase/.temp/
+
+# Vinculación local con Vercel
+.vercel/
+
+# Código anterior a la migración a Supabase (ya no se usa; se conserva sólo en la carpeta local)
+_legado-postgres/

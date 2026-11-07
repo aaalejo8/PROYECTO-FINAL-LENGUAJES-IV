@@ -1,0 +1,26 @@
+{
+  "name": "portfolio-servidor",
+  "version": "1.0.0",
+  "private": true,
+  "description": "API del portfolio fullstack (Node.js + Supabase)",
+  "main": "src/index.js",
+  "engines": {
+    "node": ">=20.12"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "db:seed": "node scripts/seed.js",
+    "admin:crear": "node scripts/crear-admin.js",
+    "correo:probar": "node scripts/probar-correo.js",
+    "test": "node --test test/unit.test.js test/db.test.js",
+    "test:integracion": "node --test test/integracion.test.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.119.0",
+    "nodemailer": "^6.10.1"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "^0.5.15"
+  }
+}

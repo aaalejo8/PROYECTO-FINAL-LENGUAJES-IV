@@ -1,0 +1,140 @@
+@import "tailwindcss";
+
+/* ── Tokens del manual de marca (ver docs/manual-de-marca) ── */
+@theme {
+  --color-surface-0: #070a12;
+  --color-surface-1: #0b0f1a;
+  --color-surface-2: #131a2b;
+  --color-surface-3: #1b2440;
+  --color-line: #2a3556;
+  --color-line-strong: #5b6a94;
+  --color-ink: #e8ecf8;
+  --color-ink-2: #9aa6c4;
+  --color-ink-3: #7b86a6;
+  --color-primary: #c6f432;
+  --color-primary-hover: #d9ff6b;
+  --color-on-primary: #0b0f1a;
+  --color-secondary: #22d3ee;
+  --color-accent: #8b6cff;
+  --color-success: #34d399;
+  --color-warning: #fbbf24;
+  --color-danger: #f87171;
+  --color-info: #60a5fa;
+
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+
+  --shadow-focus: 0 0 0 3px #c6f432;
+  --shadow-float: 0 16px 40px rgb(0 0 0 / 0.5);
+  --: 0 1px 0 rgb(255 255 255 / 0.04) inset, 0 12px 32px -12px rgb(0 0 0 / 0.6);
+
+  --animate-fade: fade 0.18s ease-out;
+  --animate-pop: pop 0.2s ease-out;
+  --animate-slide-in: slide-in 0.25s ease-out;
+  --animate-slide-in-left: slide-in-left 0.25s ease-out;
+  --animate-blink: blink 1.1s steps(1) infinite;
+
+  @keyframes fade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes pop {
+    from { opacity: 0; transform: translateY(12px) scale(0.98); }
+    to { opacity: 1; transform: none; }
+  }
+  @keyframes slide-in {
+    from { transform: translateX(100%); }
+    to { transform: none; }
+  }
+  @keyframes slide-in-left {
+    from { transform: translateX(-100%); }
+    to { transform: none; }
+  }
+  @keyframes blink {
+    50% { opacity: 0; }
+  }
+}
+
+@layer base {
+  html {
+    background: var(--color-surface-0);
+    color: var(--color-ink);
+    color-scheme: dark;
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    margin: 0;
+    min-height: 100dvh;
+    background: var(--color-surface-0);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+  ::selection {
+    background: var(--color-primary);
+    color: var(--color-on-primary);
+  }
+  :focus-visible {
+    outline: none;
+    box-shadow: var(--shadow-focus);
+    border-radius: var(--radius-sm);
+  }
+  a { color: inherit; }
+  button { font: inherit; }
+  img { max-width: 100%; }
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: var(--color-surface-1); }
+  ::-webkit-scrollbar-thumb { background: var(--color-line); border-radius: 999px; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* Cuadrícula de puntos del fondo (manual de marca: "patrón de puntos") */
+  .fondo-puntos {
+    background-image: radial-gradient(var(--color-line) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+  .texto-degradado {
+    background-image: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .contenedor {
+    width: 100%;
+    max-width: 75rem;
+    margin-inline: auto;
+    padding-inline: 1rem;
+  }
+  @media (min-width: 768px) {
+    .contenedor { padding-inline: 2rem; }
+  }
+  .seccion { padding-block: 4.5rem; }
+  @media (min-width: 992px) {
+    .seccion { padding-block: 6.5rem; }
+  }
+}
