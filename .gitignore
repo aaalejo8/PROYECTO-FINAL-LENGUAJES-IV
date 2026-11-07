@@ -15,3 +15,6 @@ supabase/.temp/
 
 # Código anterior a la migración a Supabase (ya no se usa; se conserva sólo en la carpeta local)
 _legado-postgres/
+
+.vercel
+.env*
